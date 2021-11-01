@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+     <!-- ⑥↓タイトルを変えてみよう -->
+     <title>第1回のまとめ</title>
+     <!-- ⑤スタイルシートの設定をしよう -->
+     <link rel="stylesheet" href="css/style.css">
+     <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+UI ユーザーインターフェース：
+フロンドエンド：
+バックエンド：
+記憶・条件分岐(判断)・繰り返し：
+
+<h2>pythonの基本</h2>
+<h3>変数</h3>コンピュータの仮想的な箱。値を入れて一時的に記憶しておく。<br>
+
+<h4>例</h4>
+
+name="aaa"<br>
+waist=84<br>
+age=44<br>
+
+print(name, "さんは腹囲", waist, "cmで年齢は",age, "才ですね。")<br>
+
+<h3>判断・条件分岐</h3>条件を指定して判断することを条件分岐という。条件分岐にはif文を使う<br>
+
+<h4>例</h4>
+
+name="aaa"<br>
+waist=84<br>
+age=44<br>
+
+print(name, "さんは腹囲", waist, "cmで年齢は",age, "才ですね。")<br>
+
+if waist>=85:<br>
+    print(name,"さん、内臓脂肪蓄積注意です")<br>
+else:<br>
+    print(name,"さん、腹囲は問題ありません")<br>
+
+<h3>キーボード入力</h3>変数に書き込むのではなく、キーボードから入力する。input関数を使う。<br>
+
+<h4>例</h4>
+
+name=input("名前を教えて下さい")<br>
+waist=input("腹囲は？")<br>
+age=input("年齢は？")<br>
+
+<h3>データ型</h3>
+コンピュータでは、数字は数値か文字として扱われる。文字として扱う場合は"や'を使用し、数値として扱う場合はintやfloatを使用する。<br>
+
+<h4>例</h4>
+
+name=input("名前を教えて下さい")<br>
+waist=float(input("腹囲は？"))<br>
+age=int(input("年齢は？"))<br>
+
+<h3>繰り返し</h3>繰り返しにより、大量の処理ができる。繰り返しにはfor文とwhile文がある。<br>
+
+<h4>例(for文)</h4>
+
+for i in range(3): (コロンが入っていることに注意)<br>
+    print(i,"人目") (タブでずらしていることに注意)<br>
+
+#出力結果<br>
+# 0 人目<br>
+# 1 人目<br>
+# 2 人目<br>
+
+<h3>リスト</h3>
+変数は上書きされていくので、あとで値を使いたい場合はリストを使う。appendで値を追加する。
+
+<h4>例</h4>
+waist_list=[] (waist_listというリストを作る)<br>
+for i in range(1,4):<br>
+    <p>print(i,"人目")<br></p>
+   <p>waist=float(input("腹囲は？"))<br></p>
+ <br>
+    waist_list.append(waist) #ここでwaistという変数の値をリストに追加している<br>
+ <br>
+print(waist_list)<br>
+
+<h3>リストの値を集計</h3>
+
+<h4>例</h4>
+
+l=len(waist_list) <br>
+s=sum(waist_list) <br>
+mean=s/l #平均は合計/件数<br>
+
+<h3>乱数</h3>ランダムで数値を出す。<br>
+
+<h4>例</h4>
+
+import random<br>
+a = random.randint(50, 100)<br>
+print(a)<br>
+
+<h2>グループで作ったゲーム</h2>
+数当てゲームを作りました。しかし、どの班も同じものを作っていると聞いたので、少しでも個性を出そうと、個人的にコメントを変えています。<br>
+数を外すと煽られ、当てると黙るようにし、何だかスッキリしないゲームにしました。<br>
+<h3>ソースコード</h3>
+<code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;">import random</li>
+    <li style="background-color:#EEF;">secretNumber=random.randint(0,50)</li>
+    <li style="background-color:#EFF;">print("0から50の数字をあててみて！")</li>
+    <li style="background-color:#EEF;">times=5</li>
+    <li style="background-color:#EFF;">for i  in range(1,6):</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("やってみよう")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;guess=int(input())</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;if guess&lt;secretNumber:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("もっと大きい数字だ")</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;times+=1</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;elif guess&gt;secretNumber:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("もっと小さい数字だ")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;times+=1</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;times+=1</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;if guess==secretNumber:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(".......")</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("不正解！ざこ〜＾＾；")</li>
+    <li style="background-color:#EFF;"></li>
+    </ol></code>
+
