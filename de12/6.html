@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+     <!-- ⑥↓タイトルを変えてみよう -->
+     <title>第6回のまとめ</title>
+     <!-- ⑤スタイルシートの設定をしよう -->
+     <link rel="stylesheet" href="css/style.css">
+     <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+<h2>ソースコード</h2>
+<code>
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">import shelve,sys,random,re,string</li>
+    <li style="background-color:#EFF;">import pyperclip as py</li>
+    <li style="background-color:#EEF;">name=sys.argv[1]</li>
+    <li style="background-color:#EFF;">pw_shelf=shelve.open('pw')</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">def strength_test(pw):#pwが強ければTrue,そうでなければFalse</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;test_A=re.search(re.compile(r'[A-Z]+'),pw)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;test_a=re.search(re.compile(r'[a-z]+'),pw)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;test_0=re.search(re.compile(r'[0-9]+'),pw)</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;if test_A and test_a and test_0 :</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">def display_list():#登録されているnameを出力</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;name_list=list(pw_shelf.keys())</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;name_list.sort(key=str.lower)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print('アルファベット順'.center(10,'-'))</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;for k in name_list:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(k)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print('-'*10)</li>
+    <li style="background-color:#EEF;"></li>
+    <li style="background-color:#EFF;">if sys.argv[1]=='list':</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</li>
+    <li style="background-color:#EFF;"></li>
+    <li style="background-color:#EEF;">if name in pw_shelf.keys():</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(name+'のパスワードを確認しました')</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;py.copy(pw_shelf[name])</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print('パスワードをコピーしました')</li>
+    <li style="background-color:#EEF;">else:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(name+'のパスワードが登録されていません\nパスワードを生成して登録しますか？(y/n)')</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;yn=input()</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;if yn=='y':</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('パスワードを生成します\nパスワードの文字数を入力してください')</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character_num=int(input())</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while True:</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;str=string.ascii_letters+string.digits+string.punctuation</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pw_lst=random.sample(str,character_num)</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pw=''.join(pw_lst)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if strength_test(pw):#強いパスワードの場合ループを抜ける</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;py.copy(pw)</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pw_shelf[name]=pw</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('パスワードの登録とコピーが完了しました')</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li>
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('exit')</li>
+    </ol></code>
+
+<h2>説明</h2>
+<div>パスワードの作成・管理を行うプログラム<br>
+大文字を含めた英数10文字でパスワードを生成し、リストによって管理するというものだ。<br>
+リストをワードかエクセルで保存、管理しようとしたが、python-doxcの仕様が理解できなった為、出来なかった。<br>
+また、このコードは何故かエラーが出てしまい動かない。<br>
+プログラミング難しい........デザイン演習が終わるころには完成させられるようになりたい。</div>
+
+<h2>参考文献</h2>
+
+<ul>
+    <li><a href="https://qiita.com/kaka__non/items/81b55df2c90ae829db6b" target="_blank">(外部サイト)</a></li>
+    <li><a href="https://gammasoft.jp/support/how-to-use-python-docx-for-word-file/" target="_blank">(外部サイト)</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+</body>
