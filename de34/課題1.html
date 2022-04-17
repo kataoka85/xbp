@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+     <!-- ⑥↓タイトルを変えてみよう -->
+     <title>第1回の課題</title>
+     <!-- ⑤スタイルシートの設定をしよう -->
+     <link rel="stylesheet" href="css/style.css">
+     <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+<h2>プログラム</h2>
+<div>void setup() {<br>
+    // put your setup code here, to run once:<br>
+    Serial.begin(9600);<br>
+    pinMode(13,OUTPUT);<br>
+  }<br>
+  void loop() {<br>
+    // put your main code here, to run repeatedly:<br>
+  int val=0;<br>
+    val=analogRead(1);<br>
+    Serial.println(val);<br>
+  if(val>150){digitalWrite(13,HIGH);<br>
+   }<br>
+  else{digitalWrite(13,LOW);<br>
+   }<br>
+  }<br>
+</div>
+<h2>正負の感情のリストアップ</h2>
+<li>正の感情</li>
+<div>勝利<br>
+     食事<br>
+     給料日
+
+</div>
+<li>負の感情</li>
+<div>
+    月曜の朝<br>
+    混雑なエレベーター・電車<br>
+    コロナウイルス<br>
+    転がり落ちるペン<br>
+
+</div>
+<div>※随時書き足し中</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
