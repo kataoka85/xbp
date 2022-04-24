@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+     <!-- ⑥↓タイトルを変えてみよう -->
+     <title>第2回の課題</title>
+     <!-- ⑤スタイルシートの設定をしよう -->
+     <link rel="stylesheet" href="css/style.css">
+     <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+<h2>プログラム</h2>
+#include ＜Adafruit_NeoPixel.h＞
+    #define PIN        9 // 信号用のピンを指定
+    #define NUMPIXELS 5 // LEDの数を指定
+    int brightness=50;//明るさ
+    
+    Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+    
+    void setup() {
+      pixels.begin(); // NeoPixel出力ピンの初期化
+      pixels.setBrightness(brightness);
+    }
+    
+    void loop() {
+      pixels.clear(); // すべてのLEDの色を0にセット
+    
+      for(int i=0; i＜NUMPIXELS; i++) {
+        int r=random(0,25);
+        int g=random(0,25);
+        int b=random(0,25);
+        pixels.setPixelColor(i, pixels.Color(r,g,b));
+        pixels.show();
+        delay(10);
+      }
+    } 
+
+<h2>話し合いまとめ</h2>
+<h3>POV</h3>
+
+<div><img src="images/IMG_2116.jpg"width="30%"></div>
+<h3>Post-it</h3>
+<img src="images/IMG_2117.jpg"width="30%">
+<img src="images/IMG_2118.jpg"width="30%">
+
+
+</body>
+
