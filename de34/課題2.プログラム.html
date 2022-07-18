@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+     <!-- ⑥↓タイトルを変えてみよう -->
+     <title>第2回のプログラム</title>
+     <!-- ⑤スタイルシートの設定をしよう -->
+     <link rel="stylesheet" href="css/style.css">
+     <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<bpdy>
+<code>#include ＜Adafruit_NeoPixel.h＞<br>
+    #define PIN        9 // 信号用のピンを指定<br>
+    #define NUMPIXELS 5 // LEDの数を指定<br>
+    int brightness=50;//明るさ<br>
+    <br>
+    Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);<br>
+    <br>
+    void setup() {<br>
+      pixels.begin(); // NeoPixel出力ピンの初期化<br>
+      pixels.setBrightness(brightness);<br>
+    }<br>
+    <br>
+    void loop() {<br>
+      pixels.clear(); // すべてのLEDの色を0にセット<br>
+      <br>    
+      for(int i=0; i＜NUMPIXELS; i++) {<br>
+        int r=random(0,25);<br>
+        int g=random(0,25);<br>
+        int b=random(0,25);<br>
+        pixels.setPixelColor(i, pixels.Color(r,g,b));<br>
+        pixels.show();<br>
+        delay(10);<br>
+      }<br>
+    } <br>
+</code>
