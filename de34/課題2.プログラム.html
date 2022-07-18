@@ -8,7 +8,7 @@
      <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
 <bpdy>
-<code>#include ＜Adafruit_NeoPixel.h＞<br>
+<code>#include 〈Adafruit_NeoPixel.h〉<br>
     #define PIN        9 // 信号用のピンを指定<br>
     #define NUMPIXELS 5 // LEDの数を指定<br>
     int brightness=50;//明るさ<br>
@@ -23,7 +23,7 @@
     void loop() {<br>
       pixels.clear(); // すべてのLEDの色を0にセット<br>
       <br>    
-      for(int i=0; i＜NUMPIXELS; i++) {<br>
+      for(int i=0; i〈NUMPIXELS; i++) {<br>
         int r=random(0,25);<br>
         int g=random(0,25);<br>
         int b=random(0,25);<br>
