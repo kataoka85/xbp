@@ -9,7 +9,22 @@
 </head>
 <body>
 <h2>プログラム</h2>
-<li><a href="課題2.プログラム.html" target="_blank">リンク</a></li>
+  void setup() {<br>
+  // put your setup code here, to run once:<br>
+  Serial.begin(9600);<br>
+  pinMode(13,OUTPUT);<br>
+  }<br>
+  void loop() {<br>
+  // put your main code here, to run repeatedly:<br>
+  int val=0;<br>
+  int val=0;<br>
+  val=analogRead(1);<br>
+  Serial.println(val);<br>
+  if(val>150){digitalWrite(13,HIGH);<br>
+  }<br>
+   else{digitalWrite(13,LOW);<br>
+  }<br>
+  }<br>
 
 <h2>話し合いまとめ</h2>
 <h3>POV</h3>
